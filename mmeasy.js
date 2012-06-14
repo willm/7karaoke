@@ -13,7 +13,7 @@ MusixMatchParser = function (res){
 			for(var i =0; i<lyricsAndTimeStamps.length; i+=2){
 				niceObject[lyricsAndTimeStamps[i]] = lyricsAndTimeStamps[i+1];
 			}
-			console.log(that.res.send(niceObject));
+			console.log(that.res.json(niceObject));
 		}
 	}(this));
 }
@@ -28,7 +28,6 @@ MusixMatchParser.prototype.getTrackLyrics = function(trackId){
 	return mXm.API.getSubtitle(14201829, that.parseResponse, that.onError);
 };
 
-//new MusixMatchParser().getTrackLyrics(14201829);
 exports.create = function(res){
 	return new MusixMatchParser(res);
 }

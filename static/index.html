@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<title>Karaoke</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			$.get('lyrics', function(data){
+				var lines = [];
+				for(prop in data)
+					lines.push(data[prop]);
+				console.log(lines);
+				setText(lines);
+				//$('#current').text(text);
+			});
+			
+			var setText = function(lines){
+					var count = 0;
+					//console.log(lines);
+					setInterval(function(){
+						$('#current').text(lines[count]);
+						count ++;
+				}, 1000);
+			}
+			
+			
+			var a= 777;
+			//setText();
+		})
+	</script>
+</head>
+	<body>
+		<h1 id="title">Karaoke</h1>
+		<h2 id="current"></h2>
+	</body>
+</html>
