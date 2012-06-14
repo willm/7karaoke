@@ -6,13 +6,13 @@
 	<script type="text/javascript">
 		$(function(){
 
+			document.getElementById('muziq').play();
+
 			$.get('lyrics', function(data){
 				var lines = [];
 				for(prop in data)
 					lines.push(data[prop]);
-				console.log(lines);
 				setText(lines);
-				//$('#current').text(text);
 			});
 			
 			var setText = function(lines){
@@ -23,15 +23,12 @@
 						count ++;
 				}, 1000);
 			}
-			
-			
-			var a= 777;
-			//setText();
 		})
 	</script>
 </head>
 	<body>
 		<h1 id="title">Karaoke</h1>
 		<h2 id="current"></h2>
+		<audio id="muziq" src="audio/paradise.ogg" preload="auto" controls></audio>
 	</body>
 </html>

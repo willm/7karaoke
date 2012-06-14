@@ -13,7 +13,7 @@ MusixMatchParser = function (res){
 			for(var i =0; i<lyricsAndTimeStamps.length; i+=2){
 				niceObject[lyricsAndTimeStamps[i]] = lyricsAndTimeStamps[i+1];
 			}
-			console.log(that.res.json(niceObject));
+			that.res.json(niceObject);
 		}
 	}(this));
 }

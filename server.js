@@ -2,6 +2,8 @@ var express = require('express'),
 	mm = require('./mmeasy'),
 	server = express.createServer();
 
+server.use('/audio', express.static(__dirname + '/static/audio'));
+
 server.get('/', function(req,res){
 	mm.create(res).getTrackLyrics(14201829);
 });
