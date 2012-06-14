@@ -1,0 +1,21 @@
+{
+	"name": "Karaoke",
+	"version": "0.1.0",
+	"description": "",
+	"homepage": [
+		"http://github.com/willm/7karaoke"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/willm/7karaoke.git"
+	},
+	"keywords": [],
+	"author": "Will Munn <willmunn@hotmail.com>",
+	"licenses": [
+		"MIT"
+	],
+	"main": "mmeasy.js",
+	"dependencies": {
+		"musixmatch" : "latest"
+	}
+}
