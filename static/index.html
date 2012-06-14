@@ -15,6 +15,10 @@
 				setText(lines);
 			});
 			
+			$('#tellme').click(function(){
+				console.log(document.getElementById('muziq').currentTime);
+			})
+			
 			var setText = function(lines){
 					var count = 0;
 					//console.log(lines);
@@ -30,5 +34,7 @@
 		<h1 id="title">Karaoke</h1>
 		<h2 id="current"></h2>
 		<audio id="muziq" src="audio/paradise.ogg" preload="auto" controls></audio>
+		<button id="tellme" >tell me the time</button>
+		
 	</body>
 </html>
