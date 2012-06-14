@@ -9,9 +9,8 @@
 			document.getElementById('muziq').play();
 
 			$.get('lyrics', function(data){
-				var lines = [];
-				for(prop in data)
-					lines.push(data[prop]);
+				var lines =  data.timeLyricPairs;
+				console.log(lines);
 				setText(lines);
 			});
 			
@@ -23,7 +22,7 @@
 					var count = 0;
 					//console.log(lines);
 					setInterval(function(){
-						$('#current').text(lines[count]);
+						$('#current').text(lines[count].lyric);
 						count ++;
 				}, 1000);
 			}

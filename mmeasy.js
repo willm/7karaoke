@@ -9,14 +9,24 @@ MusixMatchParser = function (res){
 		return function (musixMatchResponse){
 			var lyrics = musixMatchResponse.attributes.subtitle_body;
 			var lyricsAndTimeStamps = lyrics.split(/\[(.*?)\]/).slice(1);
-			var niceObject = {};
+			var niceObject = {timeLyricPairs : []};
 			for(var i =0; i<lyricsAndTimeStamps.length; i+=2){
-				niceObject[lyricsAndTimeStamps[i]] = lyricsAndTimeStamps[i+1];
+				niceObject.timeLyricPairs.push({time : that.convert(lyricsAndTimeStamps[i]),
+					lyric : lyricsAndTimeStamps[i+1]
+				});
+				//niceObject[lyricsAndTimeStamps[i]] = lyricsAndTimeStamps[i+1];
 			}
 			that.res.json(niceObject);
 		}
 	}(this));
 }
+
+MusixMatchParser.prototype.convert = function(timeStamp){
+  	var bits = timeStamp.split(':');
+  	var minutes = parseFloat(bits[0]) * 60;
+  	var seconds = parseFloat(bits[1]);
+    return seconds + minutes;
+  }
 
 MusixMatchParser.prototype.onError = function(response) {
   console.log("Error callback:");
