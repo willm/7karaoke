@@ -4,6 +4,19 @@
 	<title>Karaoke</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript">
+		var currentTime = function(){
+			return document.getElementById('muziq').currentTime;
+		};
+		
+		var setText = function(lines){
+				var count = 0;
+				setInterval(function(){
+					if(lines[count].time <= currentTime()+3){
+						$('#current').text(lines[count].lyric);
+						count ++;
+					}
+			}, 500);
+		};
 		$(function(){
 
 			document.getElementById('muziq').play();
@@ -14,18 +27,7 @@
 				setText(lines);
 			});
 			
-			$('#tellme').click(function(){
-				console.log(document.getElementById('muziq').currentTime);
-			})
 			
-			var setText = function(lines){
-					var count = 0;
-					//console.log(lines);
-					setInterval(function(){
-						$('#current').text(lines[count].lyric);
-						count ++;
-				}, 1000);
-			}
 		})
 	</script>
 </head>
